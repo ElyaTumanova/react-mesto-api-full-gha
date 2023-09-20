@@ -118,7 +118,7 @@ class Api {
 } 
 
 export const api = new Api ({
-  url: 'https://mesto.nomoreparties.co/v1/cohort-68',
+  url: 'https://api.elya.mesto.nomoredomainsrocks.ru',
   headers: {
     authorization: '0573a051-c261-46c2-9f99-9d24a33a3c63'
   }
