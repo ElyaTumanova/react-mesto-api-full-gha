@@ -45,6 +45,8 @@ app.use(requestLogger);
 const allowedCors = [
   'https://elya.mesto.nomoredomainsrocks.ru',
   'https://api.elya.mesto.nomoredomainsrocks.ru',
+  'http://elya.mesto.nomoredomainsrocks.ru',
+  'http://api.elya.mesto.nomoredomainsrocks.ru',
   'https://praktikum.tk',
   'http://praktikum.tk',
   'localhost:3000',
