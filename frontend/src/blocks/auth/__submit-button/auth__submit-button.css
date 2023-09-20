@@ -1,0 +1,19 @@
+.auth__submit-button {
+  width: 100%;
+  border-radius: 2px;
+  background-color: #FFF;
+  color: #000;
+  text-align: center;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding: 14px 0;
+  border: none;
+}
+
+.auth__submit-button:hover{
+  background-color: rgba(255, 255, 255, 0.85);
+  cursor: pointer;
+}

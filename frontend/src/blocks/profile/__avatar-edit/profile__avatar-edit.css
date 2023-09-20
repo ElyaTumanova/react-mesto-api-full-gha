@@ -1,0 +1,21 @@
+.profile__avatar-edit {
+  background-image: url(../../../images/avatar_edit_btn.svg);
+  background-color: transparent;
+  width: 26px;
+  height: 26px;
+  border: 0;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+  top: 0;
+  bottom: 0;
+  display: none;  
+}
+
+.profile__avatar-edit:hover {
+  cursor: pointer;
+}

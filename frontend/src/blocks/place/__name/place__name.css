@@ -1,0 +1,11 @@
+.place__name {
+  margin: 0;
+  color: #000000;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
+  max-width: calc(100% - 53px);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; 
+}

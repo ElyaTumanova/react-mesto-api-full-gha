@@ -1,0 +1,4 @@
+.place__like-wrap {
+  display: flex;
+  flex-direction: column;
+}

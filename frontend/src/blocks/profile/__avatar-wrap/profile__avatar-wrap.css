@@ -1,0 +1,8 @@
+.profile__avatar-wrap {
+  margin-right: 30px;
+  position: relative;
+}
+
+.profile__avatar-wrap:hover {
+  cursor: pointer;
+}

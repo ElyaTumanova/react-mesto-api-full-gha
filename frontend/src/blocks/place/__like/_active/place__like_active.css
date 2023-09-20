@@ -1,0 +1,6 @@
+.place__like_active {
+  height: 19px;
+  width: 22px;
+  border: none;
+  background: url(../../../../images/place__like_active.svg) no-repeat center;
+}  

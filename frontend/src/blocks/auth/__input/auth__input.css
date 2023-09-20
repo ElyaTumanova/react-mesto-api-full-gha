@@ -1,0 +1,17 @@
+.auth__input {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #fff;
+  padding-bottom: 13px;
+  color: #CCC;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.auth__input:not(:last-child) {
+  margin-bottom: 30px;
+}

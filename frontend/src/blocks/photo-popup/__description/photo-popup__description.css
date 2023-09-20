@@ -1,0 +1,12 @@
+.photo-popup__description {
+  margin: 0;
+  padding-top: 10px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  max-width: 240px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  align-self: center; 
+} 

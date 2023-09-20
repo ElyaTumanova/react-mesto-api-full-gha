@@ -9,8 +9,8 @@
 
 ## Ссылки на проект
 
-IP-адрес x.x.x.x
+IP-адрес 62.84.117.57
 
-Frontend https://...
+Frontend https://elya.mesto.nomoredomainsrocks.ru
 
-Backend https://...
+Backend https://api.elya.mesto.nomoredomainsrocks.ru

@@ -1,0 +1,15 @@
+.place__photo {
+  width: 100%;
+  aspect-ratio: 1/1;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  vertical-align:bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  object-fit: cover;
+}
+
+.place__photo:hover {
+  cursor: pointer;
+}
