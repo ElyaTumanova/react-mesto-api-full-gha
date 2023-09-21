@@ -58,7 +58,7 @@ app.use((req, res, next) => {
   console.log(origin);
   console.log(allowedCors.includes(origin));
   if (allowedCors.includes(origin)) {
-    res.header('Access-Control-Allow-Origin', origin);
+    return res.header('Access-Control-Allow-Origin', origin);
   }
 
   const { method } = req; // Сохраняем тип запроса (HTTP-метод) в соответствующую переменную
