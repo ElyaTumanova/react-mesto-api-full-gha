@@ -4,6 +4,7 @@
 /* eslint-disable no-console */
 
 const express = require('express');
+const cors = require('cors');
 
 require('dotenv').config();
 
@@ -52,29 +53,37 @@ const allowedCors = [
   'localhost:3000',
 ];
 
-app.use((req, res, next) => {
-  console.log('hohoho');
-  const { origin } = req.headers;
-  console.log(origin);
-  console.log(allowedCors.includes(origin));
-  if (allowedCors.includes(origin)) {
-    return res.header('Access-Control-Allow-Origin', origin);
-  }
+const corsOptions = {
+  origin: allowedCors,
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  allowedHeaders: 'Origin, Accept, Content-Type, Authorization',
+  credentials: true,
+};
 
-  const { method } = req; // Сохраняем тип запроса (HTTP-метод) в соответствующую переменную
+app.use(cors(corsOptions));
 
-  // Значение для заголовка Access-Control-Allow-Methods по умолчанию (разрешены все типы запросов)
-  const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
-  const requestHeaders = req.headers['access-control-request-headers'];
+// app.use((req, res, next) => {
+//   console.log('hohoho');
+//   const { origin } = req.headers;
+//   console.log(origin);
+//   console.log(allowedCors.includes(origin));
+//   if (allowedCors.includes(origin)) {
+//     return res.header('Access-Control-Allow-Origin', origin);
+//   }
 
-  // Если это предварительный запрос, добавляем нужные заголовки
-  if (method === 'OPTIONS') {
-    res.header('Access-Control-Allow-Methods', DEFAULT_ALLOWED_METHODS);
-    res.header('Access-Control-Allow-Headers', requestHeaders);
-    return res.end();
-  }
-  next();
-});
+//   const { method } = req; // Сохраняем тип запроса (HTTP-метод) в соответствующую переменную
+
+//   const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
+//   const requestHeaders = req.headers['access-control-request-headers'];
+
+//   // Если это предварительный запрос, добавляем нужные заголовки
+//   if (method === 'OPTIONS') {
+//     res.header('Access-Control-Allow-Methods', DEFAULT_ALLOWED_METHODS);
+//     res.header('Access-Control-Allow-Headers', requestHeaders);
+//     return res.end();
+//   }
+//   next();
+// });
 
 app.get('/crash-test', () => {
   setTimeout(() => {
