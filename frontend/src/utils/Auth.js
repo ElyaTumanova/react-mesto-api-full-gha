@@ -1,6 +1,6 @@
 import { checkResponse } from "./checkResponse";
 
-export const BASE_URL = 'https://elya.mesto.nomoredomainsrocks.ru';
+export const BASE_URL = 'https://api.elya.mesto.nomoredomainsrocks.ru';
 
 function request(url, options) {
   return fetch(url, options).then(checkResponse)

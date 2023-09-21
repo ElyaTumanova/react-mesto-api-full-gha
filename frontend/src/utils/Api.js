@@ -120,6 +120,8 @@ class Api {
 export const api = new Api ({
   url: 'https://api.elya.mesto.nomoredomainsrocks.ru',
   headers: {
+    'Accept':'application/json',
+    'Content-Type':'application/json',
     authorization: '0573a051-c261-46c2-9f99-9d24a33a3c63'
   }
 })
