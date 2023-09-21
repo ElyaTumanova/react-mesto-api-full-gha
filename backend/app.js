@@ -16,7 +16,7 @@ const cookieParser = require('cookie-parser');
 const app = express();
 const bodyParser = require('body-parser');
 const { errors } = require('celebrate');
-// const auth = require('./middlewares/auth');
+const auth = require('./middlewares/auth');
 const errorHandler = require('./middlewares/error-handler');
 
 const { requestLogger, errorLogger } = require('./middlewares/logger');
@@ -86,7 +86,7 @@ app.post('/signin', loginRouter);
 
 app.post('/signup', createUserRouter);
 
-// app.use(auth);
+app.use(auth);
 
 app.use('/', createUserRouter);
 app.use('/', getUsersRouter);
