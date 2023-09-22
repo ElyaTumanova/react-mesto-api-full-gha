@@ -43,24 +43,24 @@ app.use(cookieParser());
 
 app.use(requestLogger);
 
-const allowedCors = [
-  'https://elya.mesto.nomoredomainsrocks.ru',
-  'https://api.elya.mesto.nomoredomainsrocks.ru',
-  'http://elya.mesto.nomoredomainsrocks.ru',
-  'http://api.elya.mesto.nomoredomainsrocks.ru',
-  'https://praktikum.tk',
-  'http://praktikum.tk',
-  'localhost:3000',
-];
+// const allowedCors = [
+//   'https://elya.mesto.nomoredomainsrocks.ru',
+//   'https://api.elya.mesto.nomoredomainsrocks.ru',
+//   'http://elya.mesto.nomoredomainsrocks.ru',
+//   'http://api.elya.mesto.nomoredomainsrocks.ru',
+//   'https://praktikum.tk',
+//   'http://praktikum.tk',
+//   'localhost:3000',
+// ];
 
-const corsOptions = {
-  origin: allowedCors,
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  allowedHeaders: 'Origin, Accept, Content-Type, Authorization',
-  credentials: true,
-};
+// const corsOptions = {
+//   origin: allowedCors,
+//   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+//   allowedHeaders: 'Origin, Accept, Content-Type, Authorization',
+//   credentials: true,
+// };
 
-app.use(cors(corsOptions));
+app.use(cors());
 
 // app.use((req, res, next) => {
 //   console.log('hohoho');
