@@ -151,6 +151,7 @@ module.exports.login = (req, res, next) => {
 };
 
 module.exports.getMyUser = (req, res, next) => {
+  console.log('my user');
   User.findById(req.user._id)
     .then((user) => {
       console.log(user);
