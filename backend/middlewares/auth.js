@@ -9,16 +9,16 @@ module.exports = (req, res, next) => {
   console.log('auth');
   console.log('auth2');
   console.log(req.headers);
-  const { cookie } = req.headers;
+  const { authorization } = req.headers;
 
-  if (!cookie || !cookie.startsWith('jwt=')) {
+  if (!authorization || !authorization.startsWith('Bearer ')) {
     throw new AuthError();
     // return res
     //   .status(401)
     //   .send({ message: 'Необходима авторизация' });
   }
 
-  const token = cookie.replace('jwt=', '');
+  const token = authorization.replace('Bearer ', '');
   let payload;
 
   try {
