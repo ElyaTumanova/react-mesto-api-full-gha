@@ -7,6 +7,7 @@ const { NODE_ENV, JWT_SECRET } = process.env;
 
 module.exports = (req, res, next) => {
   console.log('auth');
+  console.log('auth2');
   console.log(req.headers);
   const { cookie } = req.headers;
 
