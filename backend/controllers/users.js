@@ -11,7 +11,7 @@ const NotFoundError = require('../errors/not-found-err');
 const ServerError = require('../errors/server-error');
 const BadRequestError = require('../errors/bad-request-err');
 const ConflictError = require('../errors/conflict-error');
-const LoginError = require('../errors/login-error');
+// const LoginError = require('../errors/login-error');
 
 // const { NODE_ENV, JWT_SECRET } = process.env;
 
@@ -121,7 +121,7 @@ module.exports.updateUserAvatar = (req, res, next) => {
     });
 };
 
-module.exports.login = (req, res, next) => {
+module.exports.login = (req, res) => {
   console.log('login');
   const { email, password } = req.body;
 
@@ -141,12 +141,10 @@ module.exports.login = (req, res, next) => {
       // res.send({ email: user.email, name: user.name, about: user.about });
       //  .end();
     })
-    .catch((err) =>
+    .catch(() =>
       // возвращаем ошибку аутентификации
-      next(new LoginError(err.message)),
-      // res
-      //   .status(401)
-      //   .send({ message: err.message });
+      // next(new LoginError(err.message)),
+      res.status(401).send({ message: 'Ошибка тут' }),
     );
 };
 
