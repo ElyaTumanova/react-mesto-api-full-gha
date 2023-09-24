@@ -4,7 +4,7 @@
 /* eslint-disable max-len */
 /* eslint-disable no-console */
 const { default: mongoose } = require('mongoose');
-// const jwt = require('jsonwebtoken');
+const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const User = require('../models/user');
 const NotFoundError = require('../errors/not-found-err');
@@ -128,17 +128,17 @@ module.exports.login = (req, res, next) => {
   return User.findUserByCredentials(email, password)
     .then((user) => {
       // создадим токен
-      // const token = jwt.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret');
+      const token = jwt.sign({ _id: user._id }, 'some-secret-key');
       // console.log(token);
       // вернём токен
-      // res.send({ token });
+      res.send({ token });
       // res
       //   .cookie('jwt', token, {
       //     // token - наш JWT токен, который мы отправляем
       //     maxAge: 3600000,
       //     httpOnly: true,
       //   });
-      res.send({ email: user.email, name: user.name, about: user.about });
+      // res.send({ email: user.email, name: user.name, about: user.about });
       //  .end();
     })
     .catch((err) =>
