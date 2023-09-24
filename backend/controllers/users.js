@@ -138,8 +138,8 @@ module.exports.login = (req, res, next) => {
       //     maxAge: 3600000,
       //     httpOnly: true,
       //   });
-      res.send({ email: user.email, name: user.name, about: user.about })
-        .end();
+      res.send({ email: user.email, name: user.name, about: user.about });
+      //  .end();
     })
     .catch((err) =>
       // возвращаем ошибку аутентификации
