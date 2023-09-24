@@ -131,7 +131,7 @@ module.exports.login = (req, res, next) => {
       const token = jwt.sign({ _id: user._id }, 'some-secret-key');
       // console.log(token);
       // вернём токен
-      res.send({ token });
+      return res.send({ token });
       // res
       //   .cookie('jwt', token, {
       //     // token - наш JWT токен, который мы отправляем
