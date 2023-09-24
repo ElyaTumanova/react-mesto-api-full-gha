@@ -7,8 +7,8 @@ const { NODE_ENV, JWT_SECRET } = process.env;
 
 module.exports = (req, res, next) => {
   console.log('auth');
-  const { cookie } = req.headers;
   console.log(req.headers);
+  const { cookie } = req.headers;
 
   if (!cookie || !cookie.startsWith('jwt=')) {
     throw new AuthError();
