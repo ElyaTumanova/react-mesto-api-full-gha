@@ -129,7 +129,7 @@ module.exports.login = (req, res, next) => {
     .then((user) => {
       // создадим токен
       const token = jwt.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret');
-
+      console.log(token);
       // вернём токен
       res.send({ token });
       // res
@@ -138,7 +138,7 @@ module.exports.login = (req, res, next) => {
       //     maxAge: 3600000,
       //     httpOnly: true,
       //   });
-      res.send({ email: user.email, name: user.name, about: user.about })
+      //res.send({ email: user.email, name: user.name, about: user.about })
         .end();
     })
     .catch((err) =>

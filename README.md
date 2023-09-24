@@ -9,7 +9,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 62.84.117.57
+IP-адрес 51.250.79.169
 
 Frontend https://elya.mesto.nomoredomainsrocks.ru
 

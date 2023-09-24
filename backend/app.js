@@ -43,47 +43,7 @@ app.use(cookieParser());
 
 app.use(requestLogger);
 
-// const allowedCors = [
-//   'https://elya.mesto.nomoredomainsrocks.ru',
-//   'https://api.elya.mesto.nomoredomainsrocks.ru',
-//   'http://elya.mesto.nomoredomainsrocks.ru',
-//   'http://api.elya.mesto.nomoredomainsrocks.ru',
-//   'https://praktikum.tk',
-//   'http://praktikum.tk',
-//   'localhost:3000',
-// ];
-
-// const corsOptions = {
-//   origin: allowedCors,
-//   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-//   allowedHeaders: 'Origin, Accept, Content-Type, Authorization',
-//   credentials: true,
-// };
-
 app.use(cors());
-
-// app.use((req, res, next) => {
-//   console.log('hohoho');
-//   const { origin } = req.headers;
-//   console.log(origin);
-//   console.log(allowedCors.includes(origin));
-//   if (allowedCors.includes(origin)) {
-//     return res.header('Access-Control-Allow-Origin', origin);
-//   }
-
-//   const { method } = req; // Сохраняем тип запроса (HTTP-метод) в соответствующую переменную
-
-//   const DEFAULT_ALLOWED_METHODS = 'GET,HEAD,PUT,PATCH,POST,DELETE';
-//   const requestHeaders = req.headers['access-control-request-headers'];
-
-//   // Если это предварительный запрос, добавляем нужные заголовки
-//   if (method === 'OPTIONS') {
-//     res.header('Access-Control-Allow-Methods', DEFAULT_ALLOWED_METHODS);
-//     res.header('Access-Control-Allow-Headers', requestHeaders);
-//     return res.end();
-//   }
-//   next();
-// });
 
 app.get('/crash-test', () => {
   setTimeout(() => {
