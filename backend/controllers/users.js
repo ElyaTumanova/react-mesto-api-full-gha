@@ -131,14 +131,14 @@ module.exports.login = (req, res, next) => {
       const token = jwt.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret');
       console.log(token);
       // вернём токен
-      res.send({ token })
-      // res
-      //   .cookie('jwt', token, {
-      //     // token - наш JWT токен, который мы отправляем
-      //     maxAge: 3600000,
-      //     httpOnly: true,
-      //   });
-      // res.send({ email: user.email, name: user.name, about: user.about })
+      // res.send({ token })
+      res
+        .cookie('jwt', token, {
+          // token - наш JWT токен, который мы отправляем
+          maxAge: 3600000,
+          httpOnly: true,
+        });
+      res.send({ email: user.email, name: user.name, about: user.about })
         .end();
     })
     .catch((err) =>
