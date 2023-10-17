@@ -92,20 +92,20 @@ function App() {
     console.log(card);
     console.log(card.likes);
     console.log(currentUser._id);
-    const isLiked = card.likes.some(i => i._id === currentUser._id);
+    const isLiked = card.likes.some(i => i === currentUser._id);
     console.log(isLiked)
     if (!isLiked) {
       api.likeCard(card._id)
       .then((res) => {
         console.log(res);
         console.log(res.likes);
-        setCards((state) => state.map((c) => c._id === card._id ? res : c));
+        setCards((state) => state.map((c) => c === card._id ? res : c));
       })
       .catch((err)=>console.log (`catch:${err}`));;
     } else {
       api.deleteLikeCard(card._id)
       .then((res) => {
-        setCards((state) => state.map((c) => c._id === card._id ? res : c));
+        setCards((state) => state.map((c) => c === card._id ? res : c));
       })
       .catch((err)=>console.log (`catch:${err}`));;
     }
