@@ -74,7 +74,7 @@ module.exports.likeCard = (req, res, next) => {
         return next(new NotFoundError());
       // res.status(404).send({ message: 'Карточки с таким Id не существует' })
       }
-      res.send({ data: card });
+      res.send(card.likes);
     })
     .catch((err) => {
       if (err instanceof mongoose.Error.CastError) {
