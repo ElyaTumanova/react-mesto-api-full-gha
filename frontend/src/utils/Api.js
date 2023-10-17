@@ -9,7 +9,7 @@ class Api {
     return this._request (`${this._url}/cards`,
     {
       headers: {
-        authorization: this._authorization,
+        authorization: `Bearer ${this._authorization}`,
         'Content-type': 'application/json'
       },
     })
@@ -20,7 +20,7 @@ class Api {
     {
       method: 'POST',
       headers: {
-        authorization: this._authorization,
+        authorization: `Bearer ${this._authorization}`,
         'Content-type': 'application/json'
       },
       body: JSON.stringify({
@@ -35,7 +35,7 @@ class Api {
     {
       method: 'DELETE',
       headers: {
-        authorization: this._authorization,
+        authorization: `Bearer ${this._authorization}`,
         'Content-type': 'application/json'
       },
     })
@@ -46,7 +46,7 @@ class Api {
     {
       method: 'PUT',
       headers: {
-        authorization: this._authorization,
+        authorization: `Bearer ${this._authorization}`,
         'Content-type': 'application/json'
       },
     })
@@ -57,7 +57,7 @@ class Api {
     {
       method: 'DELETE',
       headers: {
-        authorization: this._authorization,
+        authorization: `Bearer ${this._authorization}`,
         'Content-type': 'application/json'
       },
     })
@@ -65,12 +65,11 @@ class Api {
 
 
   getUserInfo () {
-    const token = localStorage.getItem('token');
     return this._request (`${this._url}/users/me`,
     {
       method: 'GET',
       headers: {
-        authorization: `Bearer ${token}`,
+        authorization: `Bearer ${this._authorization}`,
         'Content-type': 'application/json'
       },
     })
@@ -81,7 +80,7 @@ class Api {
     {
       method: 'PATCH',
       headers: {
-        authorization: this._authorization,
+        authorization: `Bearer ${this._authorization}`,
         'Content-type': 'application/json'
       },
       body: JSON.stringify({
@@ -96,7 +95,7 @@ class Api {
     {
       method: 'PATCH',
       headers: {
-        authorization: this._authorization,
+        authorization: `Bearer ${this._authorization}`,
         'Content-type': 'application/json'
       },
       body: JSON.stringify({
