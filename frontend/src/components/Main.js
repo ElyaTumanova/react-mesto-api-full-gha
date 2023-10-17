@@ -15,7 +15,7 @@ function Main ({onEditAvatar,
   cards}) {
 
   console.log(cards);
-  
+
   const currentUser = React.useContext(CurrentUserContext);
 
   return (
@@ -36,7 +36,7 @@ function Main ({onEditAvatar,
         <button className="profile__add-button" type="button" onClick={onAddPlace}></button>  
       </section>
       <section className="places">
-        {cards.data.map (card =>
+        {cards.map (card =>
           (<Card card = {card} 
           key={card._id} 
           onCardClick = {onCardClick} 
