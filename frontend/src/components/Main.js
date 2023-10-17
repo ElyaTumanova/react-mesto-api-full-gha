@@ -14,7 +14,8 @@ function Main ({onEditAvatar,
   onCardDelete,
   cards}) {
 
-
+  console.log(cards);
+  
   const currentUser = React.useContext(CurrentUserContext);
 
   return (
