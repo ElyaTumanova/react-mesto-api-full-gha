@@ -74,6 +74,8 @@ module.exports.likeCard = (req, res, next) => {
         return next(new NotFoundError());
       // res.status(404).send({ message: 'Карточки с таким Id не существует' })
       }
+      console.log(card);
+      console.log(card.likes);
       res.send(card.likes);
     })
     .catch((err) => {
