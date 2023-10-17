@@ -65,11 +65,12 @@ class Api {
 
 
   getUserInfo () {
+    const token = localStorage.getItem('token');
     return this._request (`${this._url}/users/me`,
     {
       method: 'GET',
       headers: {
-        authorization: this._authorization,
+        authorization: `Bearer ${token}`,
         'Content-type': 'application/json'
       },
     })
