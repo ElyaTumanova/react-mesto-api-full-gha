@@ -93,7 +93,8 @@ function App() {
     if (!isLiked) {
       api.likeCard(card._id)
       .then((res) => {
-        console.log(res)
+        console.log(res);
+        console.log(res.likes);
         setCards((state) => state.map((c) => c._id === card._id ? res : c));
       })
       .catch((err)=>console.log (`catch:${err}`));;
