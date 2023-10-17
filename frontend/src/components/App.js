@@ -190,11 +190,13 @@ function App() {
   function tockenChek () {
     const token = localStorage.getItem('token');
     if (token) {
+      console.log(token);
       Auth.authorize (token)
       .then((res) => {
+        console.log(res);
         if(res) {
           setLoggedIn(true);
-          setUserEmail(res.data.email)
+          setUserEmail(res.email)
           navigate('/')
         }
       })
