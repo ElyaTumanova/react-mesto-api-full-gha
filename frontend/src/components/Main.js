@@ -17,8 +17,6 @@ function Main ({onEditAvatar,
 
   const currentUser = React.useContext(CurrentUserContext);
 
-  console.log (cards);
-
   return (
     <main className="page__content">
       <section className="profile page__profile">
