@@ -5,6 +5,10 @@ function Card ({card, onCardClick, onCardLike, onCardDelete}) {
 
   const currentUser = React.useContext(CurrentUserContext);
 
+  console.log (card);
+  console.log (card.data.owner);
+  console.log (card.owner);
+
   const isOwn = card.data.owner === currentUser._id;
   const isLiked = card.data.likes.some(i => i._id === currentUser._id);
 
