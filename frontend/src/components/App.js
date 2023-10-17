@@ -38,6 +38,7 @@ function App() {
   useEffect (()=>{  
     api.getCards()
     .then (function (res) {
+      console.log(res);
       setCards(res)
     })
     .catch((err)=>console.log (`catch:${err}`));
