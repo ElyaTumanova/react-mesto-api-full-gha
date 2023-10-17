@@ -76,7 +76,7 @@ module.exports.likeCard = (req, res, next) => {
       }
       console.log(card);
       console.log(card.likes);
-      res.send(card.likes);
+      res.send(card);
     })
     .catch((err) => {
       if (err instanceof mongoose.Error.CastError) {
