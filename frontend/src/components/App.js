@@ -164,7 +164,7 @@ function App() {
       console.log(res);
       console.log(res.email);
       setLoggedIn(true);
-      setUserEmail(res.data.email);
+      setUserEmail(res.email);
       navigate ('/');
     })
     .catch((err)=>console.log (`catch:${err}`));
