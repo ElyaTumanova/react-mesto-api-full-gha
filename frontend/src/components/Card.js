@@ -4,6 +4,7 @@ import React from 'react'
 function Card ({card, onCardClick, onCardLike, onCardDelete}) {
 
   const currentUser = React.useContext(CurrentUserContext);
+  console.log (currentUser);
 
   const isOwn = card.owner._id === currentUser._id;
   const isLiked = card.likes.some(i => i._id === currentUser._id);
