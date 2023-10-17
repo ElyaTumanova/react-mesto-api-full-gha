@@ -9,7 +9,7 @@ function Card ({card, onCardClick, onCardLike, onCardDelete}) {
   console.log (card.owner);
 
   const isOwn = card.owner === currentUser._id;
-  const isLiked = card.data.likes.some(i => i._id === currentUser._id);
+  const isLiked = card.likes.some(i => i._id === currentUser._id);
 
   const cardLikeButtonClassName = ( 
     `place__like ${isLiked && 'place__like_active'}` 
