@@ -161,6 +161,8 @@ function App() {
     console.log(token)
     Auth.authorize(token)
     .then ((res)=>{
+      console.log(res);
+      console.log(res.data.email);
       setLoggedIn(true);
       setUserEmail(res.data.email);
       navigate ('/');

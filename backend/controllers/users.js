@@ -141,11 +141,11 @@ module.exports.login = (req, res) => {
       // res.send({ email: user.email, name: user.name, about: user.about });
       //  .end();
     })
-    .catch(() =>
+    .catch(() => {
       // возвращаем ошибку аутентификации
-      // next(new LoginError(err.message)),
-      res.status(401).send({ message: 'Ошибка тут' }),
-    );
+      // return next(new LoginError(err.message)),
+      res.status(401).send({ message: 'Ошибка тут' });
+    });
 };
 
 module.exports.getMyUser = (req, res, next) => {
