@@ -9,7 +9,7 @@ class Api {
     return this._request (`${this._url}/cards`,
     {
       headers: {
-        authorization: `0573a051-c261-46c2-9f99-9d24a33a3c63`,
+        authorization: `Bearer ${this._authorization}`,
         'Content-type': 'application/json'
       },
     })
