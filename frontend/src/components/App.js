@@ -100,15 +100,15 @@ function App() {
         console.log(res);
         console.log(res.likes);
         setCards(function(state) {
-          console.log(state)
-          state.map((c) => c === card._id ? res : c);
+          console.log(state.data)
+          state.data.map((c) => c._id === card._id ? res : c);
         })
       })
       .catch((err)=>console.log (`catch:${err}`));;
     } else {
       api.deleteLikeCard(card._id)
       .then((res) => {
-        setCards((state) => state.map((c) => c === card._id ? res : c));
+        setCards((state) => state.map((c) => c._id === card._id ? res : c));
       })
       .catch((err)=>console.log (`catch:${err}`));;
     }
