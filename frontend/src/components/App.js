@@ -162,7 +162,7 @@ function App() {
     Auth.authorize(token)
     .then ((res)=>{
       console.log(res);
-      console.log(res.data.email);
+      console.log(res.email);
       setLoggedIn(true);
       setUserEmail(res.data.email);
       navigate ('/');
