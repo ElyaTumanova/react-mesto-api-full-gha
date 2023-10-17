@@ -2,7 +2,7 @@ class Api {
   constructor (config) {
     this._url = config.url;
     this._headers = config.headers;
-    this._authorization = config.headers.authorization;
+    this._authorization = localStorage.getItem('token');
   }
 
   getCards () {
@@ -123,6 +123,6 @@ export const api = new Api ({
   headers: {
     'Accept':'application/json',
     'Content-Type':'application/json',
-    authorization: '0573a051-c261-46c2-9f99-9d24a33a3c63'
+    // authorization: '0573a051-c261-46c2-9f99-9d24a33a3c63'
   }
 })
