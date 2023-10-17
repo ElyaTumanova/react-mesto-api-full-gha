@@ -99,7 +99,10 @@ function App() {
       .then((res) => {
         console.log(res);
         console.log(res.likes);
-        setCards((state) => state.map((c) => c === card._id ? res : c));
+        setCards(function(state) {
+          console.log(state)
+          state.map((c) => c === card._id ? res : c);
+        })
       })
       .catch((err)=>console.log (`catch:${err}`));;
     } else {
