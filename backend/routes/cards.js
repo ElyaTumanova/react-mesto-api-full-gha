@@ -1,4 +1,3 @@
-/* eslint-disable no-useless-escape */
 const getCardsRouter = require('express').Router();
 const createCardRrouter = require('express').Router();
 const deleteCardByIdRouter = require('express').Router();
@@ -16,7 +15,7 @@ createCardRrouter.post(
   celebrate({
     body: Joi.object().keys({
       name: Joi.string().required().min(2).max(30),
-      link: Joi.string().required().regex(/^(http|https):\/\/(\w|[-\._~:\/\?#\[\]@!\$&'\(\)\*\+,;=])|(#$)/),
+      link: Joi.string().required().regex(/^(http|https):\/\/(\w|[-._~:/?#[\]@!$&'()*+,;=])|(#$)/),
     }),
   }),
   createCard,

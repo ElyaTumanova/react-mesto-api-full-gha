@@ -1,21 +1,12 @@
-/* eslint-disable no-console */
-/* eslint-disable consistent-return */
 const jwt = require('jsonwebtoken');
 const AuthError = require('../errors/auth-error');
 
-// const { NODE_ENV, JWT_SECRET } = process.env;
-
+// eslint-disable-next-line consistent-return
 module.exports = (req, res, next) => {
-  console.log('auth');
-  console.log(req.headers);
   const { authorization } = req.headers;
-  console.log(authorization);
 
   if (!authorization || !authorization.startsWith('Bearer ')) {
-    throw new AuthError();
-    // return res
-    //   .status(401)
-    //   .send({ message: 'Необходима авторизация' });
+    return next(new AuthError());
   }
 
   const token = authorization.replace('Bearer ', '');
@@ -24,10 +15,7 @@ module.exports = (req, res, next) => {
   try {
     payload = jwt.verify(token, 'some-secret-key');
   } catch (e) {
-    return next(AuthError());
-    // return res
-    //   .status(401)
-    //   .send({ message: 'Необходима авторизация' });
+    return next(new AuthError());
   }
 
   req.user = payload; // записываем пейлоуд в объект запроса
