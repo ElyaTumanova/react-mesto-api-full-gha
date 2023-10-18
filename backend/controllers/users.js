@@ -97,6 +97,7 @@ module.exports.login = (req, res) => {
       console.log(user);
       // создадим токен
       const token = jwt.sign({ _id: user._id }, 'some-secret-key');
+      console.log(token);
       // вернём токен
       return res.send({ token });
     })
