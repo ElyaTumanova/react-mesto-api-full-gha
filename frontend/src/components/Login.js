@@ -22,6 +22,8 @@ function Login ({onLogin}) {
   function handleSubmit (e) {
     e.preventDefault()
     const {email, password} = formValue;
+    console.log(email);
+    console.log(password);
     Auth.login(email, password)
     .then((data) => {
       console.log(data);
