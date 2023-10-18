@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const { default: mongoose } = require('mongoose');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
@@ -89,9 +90,11 @@ module.exports.updateUserAvatar = (req, res, next) => {
 
 module.exports.login = (req, res) => {
   const { email, password } = req.body;
+  console.log('login');
 
   return User.findUserByCredentials(email, password)
     .then((user) => {
+      console.log(user);
       // создадим токен
       const token = jwt.sign({ _id: user._id }, 'some-secret-key');
       // вернём токен

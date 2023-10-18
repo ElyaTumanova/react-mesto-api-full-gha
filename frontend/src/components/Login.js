@@ -24,6 +24,7 @@ function Login ({onLogin}) {
     const {email, password} = formValue;
     Auth.login(email, password)
     .then((data) => {
+      console.log(data);
       const token = data.token;
       localStorage.setItem('token', token);
       onLogin (token);
