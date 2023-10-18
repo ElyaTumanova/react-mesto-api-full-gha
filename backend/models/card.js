@@ -8,8 +8,14 @@ const cardSchema = new mongoose.Schema({
     maxlength: 30,
   },
   link: {
-    type: mongoose.SchemaTypes.Url,
+    type: String,
     required: true,
+    validate: {
+      validator(v) {
+        return /^(http|https):\/\/(\w|[-._~:/?#[\]@!$&'()*+,;=])|(#$)/.test(v);
+      },
+      message: 'Invalid URL.',
+    },
   },
   owner: {
     type: mongoose.Schema.Types.ObjectId,
