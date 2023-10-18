@@ -5,7 +5,7 @@ const User = require('../models/user');
 const NotFoundError = require('../errors/not-found-err');
 const BadRequestError = require('../errors/bad-request-err');
 const ConflictError = require('../errors/conflict-error');
-const AuthError = require('../errors/auth-error');
+// const AuthError = require('../errors/auth-error');
 
 // const { NODE_ENV, JWT_SECRET } = process.env;
 
@@ -97,8 +97,9 @@ module.exports.login = (req, res) => {
       // вернём токен
       return res.send({ token });
     })
-    // eslint-disable-next-line no-undef
-    .catch(() => next(new AuthError()));
+    .catch(() => {
+      res.status(401).send({ message: 'Ошибка тут' });
+    });
 };
 
 module.exports.getMyUser = (req, res, next) => {
