@@ -8,7 +8,7 @@ const BadRequestError = require('../errors/bad-request-err');
 const ConflictError = require('../errors/conflict-error');
 const AuthError = require('../errors/auth-error');
 
-// const { NODE_ENV, JWT_SECRET } = process.env;
+const { NODE_ENV, JWT_SECRET } = process.env;
 
 module.exports.getUsers = (req, res, next) => {
   User.find({})
@@ -81,6 +81,10 @@ module.exports.updateUserAvatar = (req, res, next) => {
   User.findByIdAndUpdate(req.user._id, { avatar }, { runValidators: true, new: true }).orFail()
     .then((user) => res.send({ data: user }))
     .catch((err) => {
+      if (err.name === 'ValidationError') {
+        return next(new BadRequestError());
+        // res.status(400).send({ message: 'Переданы некорректные данные при обновлении профиля' })
+      }
       if (err instanceof mongoose.Error.DocumentNotFoundError) {
         return next(new NotFoundError());
       }
@@ -96,14 +100,14 @@ module.exports.login = (req, res) => {
     .then((user) => {
       console.log(user);
       // создадим токен
-      const token = jwt.sign({ _id: user._id }, 'some-secret-key');
+      const token = jwt.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret');
       console.log(token);
       // вернём токен
       return res.send({ token });
     })
     .catch(() => {
       // eslint-disable-next-line no-undef
-      next(new AuthError());
+      next(AuthError());
       // res.status(401).send({ message: 'Ошибка тут' });
     });
 };
