@@ -13,7 +13,8 @@ const { NODE_ENV, JWT_SECRET } = process.env;
 module.exports.getUsers = (req, res, next) => {
   User.find({})
     .then((user) => res.send(user))
-    .catch(() => next(new Error('На сервере произошла ошибка')));
+    // eslint-disable-next-line no-undef
+    .catch(() => next(err));
 };
 
 module.exports.getUserById = (req, res, next) => {
@@ -30,7 +31,8 @@ module.exports.getUserById = (req, res, next) => {
       if (e instanceof mongoose.Error.CastError) {
         return next(new BadRequestError());
       }
-      return next(new Error('На сервере произошла ошибка'));
+      // eslint-disable-next-line no-undef
+      return next(err);
     });
 };
 
@@ -52,7 +54,7 @@ module.exports.createUser = (req, res, next) => {
       } if (err.code === 11000) {
         return next(new ConflictError());
       }
-      return next(new Error('На сервере произошла ошибка'));
+      return next(err);
     });
 };
 
@@ -70,7 +72,7 @@ module.exports.updateUser = (req, res, next) => {
         return next(new NotFoundError());
         // res.status(404).send({ message: 'Пользователя с таким Id не существует' })
       }
-      return next(new Error('На сервере произошла ошибка'));
+      return next(err);
       // return res.status(500).send({ message: 'На сервере произошла ошибка' })
     });
 };
@@ -88,7 +90,7 @@ module.exports.updateUserAvatar = (req, res, next) => {
       if (err instanceof mongoose.Error.DocumentNotFoundError) {
         return next(new NotFoundError());
       }
-      return next(new Error('На сервере произошла ошибка'));
+      return next(err);
     });
 };
 
@@ -121,5 +123,6 @@ module.exports.getMyUser = (req, res, next) => {
       }
       return res.send(user);
     })
-    .catch(() => next(new Error('На сервере произошла ошибка')));
+    // eslint-disable-next-line no-undef
+    .catch(() => next(err));
 };

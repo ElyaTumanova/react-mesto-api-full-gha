@@ -8,7 +8,8 @@ const ForbiddenRequestError = require('../errors/forbidden-err');
 module.exports.getCards = (req, res, next) => {
   Card.find({})
     .then((card) => res.send(card))
-    .catch(() => next(new Error('На сервере произошла ошибка')));
+    // eslint-disable-next-line no-undef
+    .catch(() => next(err));
 };
 
 module.exports.createCard = (req, res, next) => {
@@ -20,7 +21,7 @@ module.exports.createCard = (req, res, next) => {
       if (err.name === 'ValidationError') {
         return next(new BadRequestError());
       }
-      return next(new Error('На сервере произошла ошибка'));
+      return next(err);
     });
 };
 
@@ -40,7 +41,7 @@ module.exports.deleteCardById = (req, res, next) => {
       if (err instanceof mongoose.Error.CastError) {
         return next(new BadRequestError());
       }
-      return next(new Error('На сервере произошла ошибка'));
+      return next(err);
     });
 };
 
@@ -55,7 +56,7 @@ module.exports.likeCard = (req, res, next) => {
       if (err instanceof mongoose.Error.CastError) {
         return next(new BadRequestError());
       }
-      return next(new Error('На сервере произошла ошибка'));
+      return next(err);
     });
 };
 
@@ -73,6 +74,6 @@ module.exports.dislikeCard = (req, res, next) => {
       if (err instanceof mongoose.Error.DocumentNotFoundError) {
         return next(new NotFoundError());
       }
-      return next(new Error('На сервере произошла ошибка'));
+      return next(err);
     });
 };
